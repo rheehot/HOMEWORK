@@ -9,16 +9,17 @@ if (10 < x && x < 20) {
 
 // 2. for문을 사용하여 0부터 10미만의 정수 중에서 짝수만을 작은 수부터 출력하시오.
 
+// ver1
 for (var i = 0; i < 10; i = i + 1) {
   console.log(i);
 }
 
-// ver1
+// ver2
 for (var i = 0; i < 10; i += 1) {
   console.log(i);
 }
 
-// ver2
+// ver3
 for (var i = 0; i < 10; i++) {
   console.log(i);
 }
