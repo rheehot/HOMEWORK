@@ -1,27 +1,37 @@
 // 1. 변수 x가 10보다 크고 20보다 작을 때 변수 x를 출력하는 조건식을 완성하라.
 
+// ver1
 var x = 15;
 
 if (10 < x && x < 20) {
   console.log(x);
 }
 
+// ver2
+var x = 15;
+
+if (10 < x && x < 20) console.log(x);
+
 
 // 2. for문을 사용하여 0부터 10미만의 정수 중에서 짝수만을 작은 수부터 출력하시오.
 
 // ver1
-for (var i = 0; i < 10; i = i + 1) {
-  console.log(i);
+for (even = 0; even < 10; even = even + 1) {
+  if (even % 2 === 0) {
+    console.log(even);
+  }
 }
 
 // ver2
-for (var i = 0; i < 10; i += 1) {
-  console.log(i);
+for (even = 0; even < 10; even += 1) {
+  if (even % 2 === 0) {
+    console.log(even);
+  }
 }
 
 // ver3
-for (var i = 0; i < 10; i++) {
-  console.log(i);
+for (even = 0; even < 10; even++) {
+  if (!(even % 2)) console.log(even);
 }
 
 
@@ -30,9 +40,9 @@ for (var i = 0; i < 10; i++) {
 // ver1
 var string = '';
 
-for (var number = 0; number < 10; number = number + 1) {
-  if (number % 2 === 0) {
-    string = string + number;
+for (i = 0; i < 10; i = i + 1) {
+  if (i % 2 === 0) {
+    string = string + i;
   }
 }
 
@@ -41,9 +51,9 @@ console.log(string);
 // ver2
 var string = '';
 
-for (var number = 0; number < 10; number += 1) {
-  if (number % 2 === 0) {
-    string += number;
+for (i = 0; i < 10; i += 1) {
+  if (i % 2 === 0) {
+    string += i;
   }
 }
 
@@ -52,8 +62,8 @@ console.log(string);
 // ver3
 var string = '';
 
-for (var number = 0; number < 10; number++) {
-  if (!(number % 2)) string += number;
+for (i = 0; i < 10; i++) {
+  if (!(i % 2)) string += i;
 }
 
 console.log(string);
@@ -63,7 +73,7 @@ console.log(string);
 
 // ver1
 for (var odd = 10; odd > 0; odd = odd - 1) {
-  if (odd % 2 !== 0) {
+  if (odd % 2) {
     console.log(odd);
   }
 }
@@ -76,7 +86,7 @@ for (var odd = 10; odd > 0; odd -= 1) {
 }
 
 // ver3
-for (var odd = 10; odd > 0; odd--) {
+for (var odd = 10; odd > 0; odd --) {
   if (odd % 2) console.log(odd);
 }
 
@@ -108,7 +118,7 @@ var even = 0;
 
 while (even < 10) {
   if (!(even % 2)) console.log(even);
-  even ++;
+  even += 1;
 }
 
 
@@ -133,11 +143,9 @@ while (odd > 0) {
 }
 
 
-// // 7. for문을 사용하여 0부터 10미만의 정수의 합을 출력하시오.
-// var sum =  0 + 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9;
-// console.log(sum);
+// 7. for문을 사용하여 0부터 10미만의 정수의 합을 출력하시오.
 
-//ver1
+// ver1
 var sum = 0;
 
 for (var i = 0; i < 10; i = i + 1) {
@@ -150,15 +158,6 @@ console.log(sum);
 var sum = 0;
 
 for (var i = 0; i < 10; i += 1) {
-  sum += i;
-}
-
-console.log(sum);
-
-// ver3
-var sum = 0;
-
-for (var i = 0; i < 10; i++) {
   sum += i;
 }
 
@@ -182,16 +181,20 @@ console.log(sum);
 var sum = 0;
 
 for (var i = 0; i < 20; i += 1) {
-  if (i % 2 !== 0 && i % 3 !== 0) sum += i;
+  if (i % 2 && i % 3) {
+    sum += i;
+  }
 }
 
 console.log(sum);
 
 // ver3
 var sum = 0;
+var i = 0;
 
-for (var i = 0; i < 20; i++) {
+while (i < 20) {
   if (i % 2 && i % 3) sum += i;
+  i++;
 }
 
 console.log(sum);
@@ -214,16 +217,20 @@ console.log(sum);
 var sum = 0;
 
 for (var i = 0; i < 20; i += 1) {
-  if (i % 2 === 0 || i % 3 === 0) sum += i;
+  if (i % 2 === 0 || i % 3 === 0) {
+    sum = sum + i;
+  }
 }
 
 console.log(sum);
 
 // ver3
 var sum = 0;
+var i = 0;
 
-for (var i = 0; i < 20; i++) {
+while (i < 20) {
   if (!(i % 2) || !(i % 3)) sum += i;
+  i++;
 }
 
 console.log(sum);
@@ -263,8 +270,8 @@ for (var dice1 = 1; dice1 <= 6; dice1++) {
 var line = 5;
 var star = '';
 
-for (var i = 1; i <= line; i = i + 1) {
-  for (var j = 1; j <= i; j = j + 1) {
+for (var creatLine = 1; creatLine <= line; creatLine = creatLine + 1) {
+  for (var creatStar = 1; creatStar <= creatLine; creatStar = creatStar + 1) {
     star = star + '*';
   }
   star = star + '\n';
@@ -276,8 +283,8 @@ console.log(star);
 var line = 5;
 var star = '';
 
-for (var i = 1; i <= line; i += 1) {
-  for (var j = 1; j <= i; j += 1) {
+for (var creatLine = 1; creatLine <= line; creatLine += 1) {
+  for (var creatStar = 1; creatStar <= creatLine; creatStar += 1) {
     star += '*';
   }
   star += '\n';
@@ -289,8 +296,8 @@ console.log(star);
 var line = 5;
 var star = '';
 
-for (var i = 1; i <= line; i++) {
-  for (var j = 1; j <= i; j++) {
+for (var creatLine = 1; creatLine <= line; creatLine++) {
+  for (var creatStar = 1; creatStar <= creatLine; creatStar++) {
     star += '*';
   }
   star += '\n';
@@ -305,9 +312,9 @@ console.log(star);
 var line = 5;
 var star = '';
 
-for (var i = 1; i <= line; i = i + 1) {
-  for (var j = 1; j <= line; j = j + 1) {
-    if (i <= j) {
+for (var creatLine = 1; creatLine <= line; creatLine = creatLine + 1) {
+  for (var creatStar = 1; creatStar <= line; creatStar = creatStar + 1) {
+    if (creatLine <= creatStar) {
       star = star + '*';
     } else {
       star = star + ' ';
@@ -322,9 +329,9 @@ console.log(star);
 var line = 5;
 var star = '';
 
-for (var i = 1; i <= line; i += 1) {
-  for (var j = 1; j <= line; j += 1) {
-    if (i <= j) {
+for (var creatLine = 1; creatLine <= line; creatLine += 1) {
+  for (var creatStar = 1; creatStar <= line; creatStar += 1) {
+    if (creatLine <= creatStar) {
       star += '*';
     } else {
       star += ' ';
@@ -339,9 +346,9 @@ console.log(star);
 var line = 5;
 var star = '';
 
-for (var i = 1; i <= line; i++) {
-  for (var j = 1; j <= line; j++) {
-    if (i <= j) star += '*';
+for (var creatLine = 1; creatLine <= line; creatLine++) {
+  for (var creatStar = 1; creatStar <= line; creatStar++) {
+    if (creatLine <= creatStar) star += '*';
     else star += ' ';
   }
   star += '\n';
@@ -356,8 +363,8 @@ console.log(star);
 var line = 5;
 var star = '';
 
-for (var i = line; i >= 1; i = i - 1) {
-  for (var j = 0; j < i; j = j + 1) {
+for (var creatLine = line; creatLine >= 1; creatLine = creatLine - 1) {
+  for (var creatStar = 0; creatStar < creatLine; creatStar = creatStar + 1) {
     star = star + '*';
   }
   star = star + '\n';
@@ -369,8 +376,8 @@ console.log(star);
 var line = 5;
 var star = '';
 
-for (var i = line; i >= 1; i -= 1) {
-  for (var j = 0; j < i; j += 1) {
+for (var creatLine = line; creatLine >= 1; creatLine -= 1) {
+  for (var creatStar = 0; creatStar < creatLine; creatStar += 1) {
     star += '*';
   }
   star += '\n';
@@ -382,8 +389,8 @@ console.log(star);
 var line = 5;
 var star = '';
 
-for (var i = line; i >= 1; i--) {
-  for (var j = 0; j < i; j++) {
+for (var creatLine = line; creatLine >= 1; creatLine--) {
+  for (var creatStar = 0; creatStar < creatLine; creatStar++) {
     star += '*';
   }
   star += '\n';
@@ -398,9 +405,9 @@ console.log(star);
 var line = 5;
 var star = '';
 
-for (var i = line; i >= 1; i = i - 1) {
-  for (var j = 0; j <= line; j = j + 1) {
-    if (i <= j) {
+for (var creatLine = line; creatLine >= 1; creatLine = creatLine - 1) {
+  for (var creatStar = 0; creatStar <= line; creatStar = creatStar + 1) {
+    if (creatLine <= creatStar) {
       star = star + '*';
     } else {
       star = star + ' ';
@@ -415,9 +422,9 @@ console.log(star);
 var line = 5;
 var star = '';
 
-for (var i = line; i >= 1; i -= 1) {
-  for (var j = 0; j <= line; j += 1) {
-    if (i <= j) {
+for (var creatLine = line; creatLine >= 1; creatLine -= 1) {
+  for (var creatStar = 0; creatStar <= line; creatStar += 1) {
+    if (creatLine <= creatStar) {
       star += '*';
     } else {
       star += ' ';
@@ -432,9 +439,9 @@ console.log(star);
 var line = 5;
 var star = '';
 
-for (var i = line; i >= 1; i--) {
-  for (var j = 0; j <= line; j++) {
-    if (i <= j) star += '*';
+for (var creatLine = line; creatLine >= 1; creatLine--) {
+  for (var creatStar = 0; creatStar <= line; creatStar++) {
+    if (creatLine <= creatStar) star += '*';
     else star += ' ';
   }
   star += '\n';
@@ -449,11 +456,11 @@ console.log(star);
 var line = 5;
 var star = '';
 
-for (var i = 1; i <= line; i = i + 1) {
-  for (var j = 1; j <= (line * 2) - 1; j = j + 1) {
-    if ((line - i) >= j) {
+for (var creatLine = 1; creatLine <= line; creatLine = creatLine + 1) {
+  for (var creatStar = 1; creatStar <= (line * 2) - 1; creatStar = creatStar + 1) {
+    if ((line - creatLine) >= creatStar) {
       star = star + ' ';
-    } else if ((line + i) <= j) {
+    } else if ((line + creatLine) <= creatStar) {
       star = star + ' ';
     } else {
       star = star + '*';
@@ -468,11 +475,11 @@ console.log(star);
 var line = 5;
 var star = '';
 
-for (var i = 1; i <= line; i += 1) {
-  for (var j = 1; j <= (line * 2) - 1; j += 1) {
-    if ((line - i) >= j) {
+for (var creatLine = 1; creatLine <= line; creatLine += 1) {
+  for (var creatStar = 1; creatStar <= (line * 2) - 1; creatStar += 1) {
+    if ((line - creatLine) >= creatStar) {
       star += ' ';
-    } else if ((line + i) <= j) {
+    } else if ((line + creatLine) <= creatStar) {
       star += ' ';
     } else {
       star += '*';
@@ -487,10 +494,10 @@ console.log(star);
 var line = 5;
 var star = '';
 
-for (var i = 1; i <= line; i++) {
-  for (var j = 1; j <= (line * 2) - 1; j++) {
-    if ((line - i) >= j) star += ' ';
-    else if ((line + i) <= j) star += ' ';
+for (var creatLine = 1; creatLine <= line; creatLine++) {
+  for (var creatStar = 1; creatStar <= (line * 2) - 1; creatStar++) {
+    if ((line - creatLine) >= creatStar) star += ' ';
+    else if ((line + creatLine) <= creatStar) star += ' ';
     else star += '*';
   }
   star += '\n';
@@ -502,9 +509,9 @@ console.log(star);
 var line = 5;
 var star = '';
 
-for (var i = 1; i <= line; i++) {
-  for (var j = 1; j <= (line * 2) - 1; j++) {
-    if ((line - i) >= j || (line + i) <= j) star += ' ';
+for (var creatLine = 1; creatLine <= line; creatLine++) {
+  for (var creatStar = 1; creatStar <= (line * 2) - 1; creatStar++) {
+    if ((line - creatLine) >= creatStar || (line + creatLine) <= creatStar) star += ' ';
     else star += '*';
   }
   star += '\n';
@@ -519,11 +526,11 @@ console.log(star);
 var line = 5;
 var star = '';
 
-for (var i = line; i >= 1; i = i - 1) {
-  for (var j = 1; j <= (line * 2) - 1; j = j + 1) {
-    if ((line - i) >= j) {
+for (var creatLine = line; creatLine >= 1; creatLine = creatLine - 1) {
+  for (var creatStar = 1; creatStar <= (line * 2) - 1; creatStar = creatStar + 1) {
+    if ((line - creatLine) >= creatStar) {
       star = star + ' ';
-    } else if ((line + i) <= j) {
+    } else if ((line + creatLine) <= creatStar) {
       star = star + ' ';
     } else {
       star = star + '*';
@@ -538,11 +545,11 @@ console.log(star);
 var line = 5;
 var star = '';
 
-for (var i = line; i >= 1; i -= 1) {
-  for (var j = 1; j <= (line * 2) - 1; j += 1) {
-    if ((line - i) >= j) {
+for (var creatLine = line; creatLine >= 1; creatLine -= 1) {
+  for (var creatStar = 1; creatStar <= (line * 2) - 1; creatStar += 1) {
+    if ((line - creatLine) >= creatStar) {
       star += ' ';
-    } else if ((line + i) <= j) {
+    } else if ((line + creatLine) <= creatStar) {
       star += ' ';
     } else {
       star += '*';
@@ -557,10 +564,10 @@ console.log(star);
 var line = 5;
 var star = '';
 
-for (var i = line; i >= 1; i--) {
-  for (var j = 1; j <= (line * 2) - 1; j++) {
-    if ((line - i) >= j) star += ' ';
-    else if ((line + i) <= j) star += ' ';
+for (var creatLine = line; creatLine >= 1; creatLine--) {
+  for (var creatStar = 1; creatStar <= (line * 2) - 1; creatStar++) {
+    if ((line - creatLine) >= creatStar) star += ' ';
+    else if ((line + creatLine) <= creatStar) star += ' ';
     else star += '*';
   }
   star += '\n';
@@ -572,9 +579,9 @@ console.log(star);
 var line = 5;
 var star = '';
 
-for (var i = line; i >= 1; i--) {
-  for (var j = 1; j <= (line * 2) - 1; j++) {
-    if ((line - i) >= j || (line + i) <= j) star += ' ';
+for (var creatLine = line; creatLine >= 1; creatLine--) {
+  for (var creatStar = 1; creatStar <= (line * 2) - 1; creatStar++) {
+    if ((line - creatLine) >= creatStar || (line + creatLine) <= creatStar) star += ' ';
     else star += '*';
   }
   star += '\n';
