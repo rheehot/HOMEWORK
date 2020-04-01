@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    .box {
+      width: 500px;
+      padding: 0 30px;
+      border: 1px solid #aaa;
+    }
+    #inputTodo {
+      width: 100%;
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin: 30px 0;
+      font-size: 16px;
+      border-radius: 5px;
+      color: #333;
+    }
+    #todos {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+    #todos li {
+      padding: 20px 5px 10px;
+      border-bottom: 1px solid #ddd;
+    }
+    #todos li:last-child {
+      margin-bottom: 30px;
+    }
+
+    #todos li > input.checkbox {
+      margin-right: 10px;
+    }
+    #todos li > .title {
+      display: inline-block;
+      width: 360px;
+    }
+    #todos li.complete > .title {
+      text-decoration: line-through;
+    }
+    #todos li > button.btnDelete {
+      display: inline-block;
+      margin-left: 10px;
+      padding: 7px 10px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <input type="text" id="inputTodo">
+    <ul id="todos"></ul>
+  </div>
+  
+  <script>
+    const $inputTodo = document.getElementById('inputTodo');
+    const $todos = document.getElementById('todos');
+
+    $inputTodo.onkeydown = e => {
+      if (e.keyCode !== 13) return;
+      
+      $todos.innerHTML += `<li><input type="checkbox" class="checkbox"><div class="title">${$inputTodo.value}</div><button class="btnDelete">x</button></li>`;
+      $inputTodo.value = '';
+    }
+
+    $todos.onchange = e => {
+      e.target.parentNode.className = e.target.checked ? 'complete' : '';
+    }
+
+    $todos.onclick = e => { 
+      e.target.matches('#todos > li > button.btnDelete') ? $todos.removeChild(e.target.parentNode) : '' ;
+    }
+  </script>
+</body>
+</html>
