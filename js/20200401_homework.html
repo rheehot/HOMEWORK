@@ -76,9 +76,14 @@
       e.target.parentNode.className = e.target.checked ? 'complete' : '';
     }
 
-    $todos.onclick = e => { 
-      e.target.matches('#todos > li > button.btnDelete') ? $todos.removeChild(e.target.parentNode) : '' ;
+    // $todos.onclick = e => { 
+    //   e.target.matches('#todos > li > button.btnDelete') ? $todos.removeChild(e.target.parentNode) : '' ;
+    // }
+
+    $todos.onclick = e => {
+      if (e.target.matches('#todos > li > button.btnDelete')) $todos.removeChild(e.target.parentNode);
     }
+
   </script>
 </body>
 </html>
