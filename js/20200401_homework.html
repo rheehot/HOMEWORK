@@ -62,6 +62,12 @@
   </div>
   
   <script>
+
+    let todos = [
+      {id: 1, content: 'HTML', complete: false},
+      {id: 2, content: 'HTML', complete: true},
+      {id: 3, content: 'HTML', complete: false},
+    ]
     const $inputTodo = document.getElementById('inputTodo');
     const $todos = document.getElementById('todos');
 
@@ -73,17 +79,14 @@
     }
 
     $todos.onchange = e => {
-      e.target.parentNode.className = e.target.checked ? 'complete' : '';
+      e.target.parentNode.classList.toggle('complete');
+      // e.target.parentNode.className = e.target.checked ? 'complete' : '';
     }
 
-    // $todos.onclick = e => { 
-    //   e.target.matches('#todos > li > button.btnDelete') ? $todos.removeChild(e.target.parentNode) : '' ;
-    // }
-
-    $todos.onclick = e => {
+    $todos.onclick = e => { 
       if (e.target.matches('#todos > li > button.btnDelete')) $todos.removeChild(e.target.parentNode);
+      // e.target.matches('#todos > li > button.btnDelete') ? $todos.removeChild(e.target.parentNode) : '' ;
     }
-
   </script>
 </body>
 </html>
