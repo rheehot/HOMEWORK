@@ -1,0 +1,60 @@
+body{
+    background-color: pink;
+    font-size: 1.4rem;
+  }
+  .appHeader, .appMain, .appFooter{
+    width: 100%;
+  }
+  .appNavigation{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 70vw;
+    height: 100vh;
+    transform:translate(-100%);
+  }
+  .book, .news, .board, .favorite, .twitter{
+    width: 100%;
+  }
+  /* 헤더 */
+  .appHeader{
+    display: flex;
+    flex-flow: row wrap;
+    background-color: #38302e;
+    padding-bottom: 1em;
+  }
+  .brand, .memberOnly, .searchForm{
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .memberOnly{
+    order: -1;
+    background-color: rgb(152, 133, 116);
+    color: #fff;
+  }
+  input[name="search"]{
+    width: calc(100% - 45px);
+  }
+  .buttonSearch{
+    vertical-align: middle;
+    width: 35px;
+    height: 35px;
+    line-height: 30px;
+    text-align: center;
+    padding: 0;
+    border: 0;
+    font-size: 0.8em;
+    position: relative;
+    background-color: transparent;
+  }
+  .buttonSearch::before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url(./../images/btn_search.png);
+    background-size: contain;
+  }

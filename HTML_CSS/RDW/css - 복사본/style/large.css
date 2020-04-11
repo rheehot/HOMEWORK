@@ -1,0 +1,76 @@
+body{
+    background-color: skyblue;
+    font-size: 1.6rem;
+  }
+  .container{
+    justify-content: center;
+  }
+  .appHeader, .appMain{
+    width: 1000px;
+  }
+  .appNavigation, .appFooter{
+    width: 100%;
+  }
+  /* 헤더 */
+  .appHeader{
+    height: 85px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+  
+    /* display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: "brand member"
+                         "brand search"; */
+  }
+  /* 로고 */
+  .brand{
+    margin: 0;
+    justify-content: center;
+    /* grid-area: brand; */
+  }
+  
+  /* 멤버 서비스 */
+  .memberOnly{
+    /* grid-area: member; */
+  }
+  /* 검색 폼 */
+  .searchForm{
+    text-align: right;
+    /* grid-area: search; */
+  }
+  input[name="search"]{
+    width: 400px;
+  }
+  .buttonSearch{
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    background-color: #988574;
+    color: #fff;
+    height: 35px;
+  }
+  
+  /* 메인 콘텐츠 */
+  .appMain{
+    justify-content: space-between;
+  }
+  .book{
+    width: 320px;
+  }
+  .news{
+    width: 660px;
+  }
+  .board{
+    width: 320px;
+  }
+  .favorite{
+    width: 220px;
+    order: 1;
+  }
+  .twitter{
+    width: 420px;
+  }
+
+
+  

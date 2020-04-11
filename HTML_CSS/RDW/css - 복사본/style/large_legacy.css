@@ -1,0 +1,69 @@
+body{
+  background-color: skyblue;
+  font-size: 1em;
+}
+.appHeader, .appMain{
+  margin: 0 auto;
+}
+.appHeader{
+  width: 1000px;
+  position: relative;
+}
+/* 로고 */
+.brand{
+  position: absolute;
+  margin: 0;
+  left: 0;
+  top: 50%;
+  margin-top: -30px;
+}
+/* 검색 폼 */
+.searchForm{
+  text-align: right;
+}
+input[name="search"]{
+  width: 400px;
+}
+.buttonSearch{
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  background-color: #988574;
+  color: #fff;
+  height: 35px;
+  vertical-align: middle;
+}
+/* 메인메뉴 */
+.appNavigation {
+  background: #988574;
+}
+
+.appMain{
+  width: 1020px;
+}
+.appMain::after{
+  content: "";
+  display: block;
+  clear: both;
+}
+.book, .news, .board, .favorite, .twitter{
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  min-height: 300px;
+}
+.book{
+  width: 320px;
+}
+.news{
+  width: 660px;
+}
+.board{
+  width: 320px;
+}
+.favorite{
+  width: 220px;
+  float: right;
+}
+.twitter{
+  width: 420px;
+}
