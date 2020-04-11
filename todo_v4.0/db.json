@@ -1,0 +1,24 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "content": "뫄뫄뫄",
+      "completed": false
+    },
+    {
+      "id": 2,
+      "content": "CSS",
+      "completed": true
+    },
+    {
+      "id": 3,
+      "content": "Javascript",
+      "completed": true
+    },
+    {
+      "id": 4,
+      "content": "fdsas",
+      "completed": false
+    }
+  ]
+}

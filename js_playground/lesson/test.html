@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="box">
+    <input type="date" class="inputDate" min="">
+  </div>
+  
+  <script>
+
+  let getToday = () => {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = now.getMonth() + 1;
+    const date = now.getDate();
+    return year + '-' + (month < 10 ? '0' + month : month) + '-' + (date < 10 ? '0' + date : date);
+  };
+
+
+  const $inputDate = document.querySelector(".inputDate").setAttribute('min', getToday());
+  </script>
+</body>
+</html>
