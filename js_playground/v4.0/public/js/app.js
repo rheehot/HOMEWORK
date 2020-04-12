@@ -1,7 +1,6 @@
 // state
 let todos = [];
 let navState = 'all';
-let completedNumber = 0;
 
 // DOMs
 const $todos = document.querySelector('.todos');
@@ -27,13 +26,8 @@ const render = () => {
   $todos.innerHTML = html;
   $inputTodo.value = '';
 
-  todos.forEach(todo => {
-    if (!todo.completed) return;
-    completedNumber += 1;
-  });
-
-  $activeTodos.textContent = todos.length - completedNumber;
-  $completedTodos.textContent = completedNumber;
+  $activeTodos.textContent = todos.filter(todo => !todo.completed).length;
+  $completedTodos.textContent = todos.filter(todo => todo.completed).length;
 };
 
 const getId = () => {
@@ -55,43 +49,44 @@ window.onload = getTodos;
 // event binding
 
 // input에 입력을 하면 todos가 갱신되고 render 한다.
-$inputTodo.onkeyup = e => {
-  if (e.keyCode !== 13 || $inputTodo.value.trim() === '') return;
-  todos = [{ id: getId(), content: $inputTodo.value, completed: false }, ...todos];
+$inputTodo.onkeyup = ({keyCode}) => {
+  const content = $inputTodo.value;
+  if (keyCode !== 13 || content.trim() === '') return;
+  todos = [{ id: getId(), content, completed: false }, ...todos];
   render();
 };
 
 // checkbox 버튼을 클릭하면 해당하는 todo의 completed 값이 변경되어 todos가 갱신되고, render한다.
-$todos.onchange = e => {
-  todos = todos.map(todo => (todo.id === +e.target.parentNode.id ? { ...todo, completed: !todo.completed } : todo));
+$todos.onchange = ({target}) => {
+  todos = todos.map(todo => (todo.id === +target.parentNode.id ? { ...todo, completed: !todo.completed } : todo));
   render();
 };
 
 // remove 버튼을 클릭하면 해당하는 줄의 todo가 삭제되고, todos를 갱신한뒤 render 한다. 
-$todos.onclick = e => {
-  if (!e.target.matches('.todos > li > .remove-todo')) return;
-  todos = todos.filter(todo => todo.id !== +e.target.parentNode.id);
+$todos.onclick = ({target}) => {
+  if (!target.matches('.todos > li > .remove-todo')) return;
+  todos = todos.filter(todo => todo.id !== +target.parentNode.id);
   render();
 };
 
 // 전체 checkbox 버튼을 클릭하면 전체 체크박스의 true 혹은 false 값에 따라서 todo의 completed 값이 변경된다.
-$completeAll.onchange = e => {
-  const completed = e.target.checked;
+$completeAll.onchange = ({target}) => {
+  const completed = target.checked;
   todos = todos.map(todo => ({ ...todo, completed }));
   render();
 };
 
 // clearCompleted 버튼을 클릭하면 completed가 true인 todo가 삭제되어 todos가 갱신되고, render한다.
-$clearCompleted.onclick = e => {
-  if (!e.target.matches('.clear-completed > button')) return;
+$clearCompleted.onclick = ({target}) => {
+  if (!target.matches('.clear-completed > button')) return;
   todos = todos.filter(todo => !todo.completed);
   render();
 };
 
 // nav버튼을 클릭하면 보여지는 리스트 형태가 달라진다.
-$nav.onclick = e => {
-  [...$nav.children].map(navItem => navItem.classList.toggle('active', e.target.id === navItem.id));
+$nav.onclick = ({target}) => {
+  [...$nav.children].map(navItem => navItem.classList.toggle('active', target.id === navItem.id));
 
-  navState = e.target.id;
+  navState = target.id;
   render();
 };
