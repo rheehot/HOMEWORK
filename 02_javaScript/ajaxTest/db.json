@@ -1,0 +1,14 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "content": "HTML뫄뫄뫄",
+      "completed": false
+    },
+    {
+      "id": 2,
+      "content": "CSS",
+      "completed": true
+    }
+  ]
+}

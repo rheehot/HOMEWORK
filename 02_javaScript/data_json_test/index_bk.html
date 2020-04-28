@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+</head>
+<body>
+  <ul class="todos"></ul>
+  <script>
+    const $todos = document.querySelector('.todos');
+    const getTodo = async () = {
+      const body = await fetch('https://jsonplaceholder.typicode.com/todos/1').then(res => res.json());
+      console.log(body);
+    }
+    // GET https://jsonplaceholder.typicode.com/todos/1
+    // {userId: 1, id: 1, title: "delectus aut autem", completed: false}
+    // const body = await fetch('https://jsonplaceholder.typicode.com/todos/1').then(res => res.json())
+  </script>
+</body>
+</html>
