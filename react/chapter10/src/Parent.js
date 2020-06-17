@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React from "react";
 import "./App.css";
 import Child01 from "./Child01";
 import Context from "./Context";

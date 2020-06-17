@@ -16,6 +16,8 @@ const reducer = (state, action) => {
           [action.name]: action.value,
         },
       };
+    default:
+      return state;
   }
 };
 export const testContext = React.createContext(null);
