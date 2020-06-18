@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import "./App.css";
 import movie from "./API/movieAPI";
+import MainRouter from "./Router/MainRouter";
 
 function App() {
   const [movieState, setMovieState] = useState({
     data: "",
   });
-  console.log(movieState);
+  const movieList = movieState.data.results;
+  const makeImagePath = (path, size = "w500") =>
+    `https://image.tmdb.org/t/p/${size}${path}`;
+  console.log(movieList);
   const click = async (btnCase) => {
     switch (btnCase) {
       case "upComing":
@@ -63,6 +67,22 @@ function App() {
         placeholder="영화정보확인"
         onKeyUp={(e) => searchEnter(e, "movieId")}
       />
+      {/* 리스트 작성 연습 {movieList ? (
+        <ul>
+          {movieList.map((movie) => (
+            <li key={movie.id}>
+              <img
+                src={makeImagePath(movie.poster_path, "w200")}
+                alt={movie.title}
+              />
+              <h6>{movie.title}</h6>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        ""
+      )} */}
+      <MainRouter />
     </div>
   );
 }
